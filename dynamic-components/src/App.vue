@@ -1,47 +1,28 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <select v-model="componentName">
+    <option value="Home">Home</option>
+    <option value="About">About</option>
+  </select>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <keep-alive>
+    <component :is="componentName"></component>
+  </keep-alive>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script>
+import Home from "./components/Home.vue";
+import About from "./components/About.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+export default {
+  name: "App",
+  components: {
+    Home,
+    About,
+  },
+  data() {
+    return {
+      componentName: "Home",
+    }
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+};
+</script>
