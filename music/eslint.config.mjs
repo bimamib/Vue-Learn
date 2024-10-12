@@ -1,21 +1,37 @@
-/* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution");
+import js from '@eslint/js'
+import pluginVue from 'eslint-plugin-vue'
+import pluginVitest from '@vitest/eslint-plugin'
+import pluginCypress from 'eslint-plugin-cypress/flat'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
-module.exports = {
-  root: true,
-  extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-prettier",
-  ],
-  overrides: [{
-    files: ["cypress/e2e/**.{cy,spec}.{js,ts,jsx,tsx}"],
-    extends: ["plugin:cypress/recommended"],
-  }, ],
-  env: {
-    node: true,
+export default [{
+    name: 'app/files-to-lint',
+    files: ['**/*.{js,mjs,jsx,vue}'],
+
+    env: {
+      node: true,
+    }
   },
-  rules: {
-    "vue/multi-word-component-names": "off",
+
+  {
+    name: 'app/files-to-ignore',
+    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
-};
+
+  js.configs.recommended,
+  ...pluginVue.configs['flat/essential'],
+
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*'],
+  },
+
+  {
+    ...pluginCypress.configs.recommended,
+    files: [
+      'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
+      'cypress/support/**/*.{js,ts,jsx,tsx}' // use single quotes as in the other configs
+    ],
+  },
+  skipFormatting,
+]
