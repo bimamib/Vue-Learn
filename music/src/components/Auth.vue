@@ -69,7 +69,7 @@
               <label class="inline-block mb-2">Email</label>
               <input
                 type="email"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Enter Email"
               />
             </div>
@@ -78,7 +78,7 @@
               <label class="inline-block mb-2">Password</label>
               <input
                 type="password"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Password"
               />
             </div>
@@ -97,7 +97,7 @@
               <vee-field
                 type="text"
                 name="name"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Enter Name"
               />
               <ErrorMessage class="text-red-600" name="name" />
@@ -105,18 +105,20 @@
             <!-- Email -->
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
-              <input
+              <vee-field
                 type="email"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                name="email"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Enter Email"
               />
+              <ErrorMessage class="text-red-600" name="email" />
             </div>
             <!-- Age -->
             <div class="mb-3">
               <label class="inline-block mb-2">Age</label>
               <input
                 type="number"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
               />
             </div>
             <!-- Password -->
@@ -124,7 +126,7 @@
               <label class="inline-block mb-2">Password</label>
               <input
                 type="password"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Password"
               />
             </div>
@@ -133,7 +135,7 @@
               <label class="inline-block mb-2">Confirm Password</label>
               <input
                 type="password"
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
                 placeholder="Confirm Password"
               />
             </div>
@@ -141,7 +143,7 @@
             <div class="mb-3">
               <label class="inline-block mb-2">Country</label>
               <select
-                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
+                class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
               >
                 <option value="USA">USA</option>
                 <option value="Mexico">Mexico</option>
@@ -155,7 +157,9 @@
                 type="checkbox"
                 class="w-4 h-4 float-left -ml-6 mt-1 rounded"
               />
-              <label class="inline-block">Accept terms of service</label>
+              <label class="inline-block text-sm"
+                >Accept terms of service</label
+              >
             </div>
             <button
               type="submit"
@@ -181,7 +185,7 @@ export default {
       tab: 'login',
       schema: {
         name: 'required|min:3|max:100|alpha_spaces',
-        email: '',
+        email: 'required|min:3|max:100|email',
         age: '',
         password: '',
         confirm_password: '',
