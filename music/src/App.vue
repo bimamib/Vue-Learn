@@ -28,7 +28,7 @@
   <!-- Main Content -->
   <section class="container mx-auto px-10">
     <div
-      class="bg-white rounded-md border border-gray-200 relative flex flex-col"
+      class="bg-white rounded-lg border shadow-md border-gray-200 relative flex flex-col"
     >
       <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
         <span class="card-title">Songs</span>
