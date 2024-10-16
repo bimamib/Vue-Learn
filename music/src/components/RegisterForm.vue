@@ -108,6 +108,8 @@
 </template>
 
 <script>
+import firebase from '@/includes/firebase'
+
 export default {
   name: 'RegisterForm',
   data() {
@@ -132,11 +134,15 @@ export default {
     }
   },
   methods: {
-    register(values) {
+    async register(values) {
       this.reg_show_alert = true
       this.reg_in_submission = true
       this.reg_alert_variant = 'bg-blue-500 rounded-lg'
       this.reg_alert_msg = 'Please Wait! Your Account is being created.'
+
+      const userCred = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(values.email, values.password)
 
       this.reg_alert_variant = 'bg-green-500 rounded-lg'
       this.reg_alert_msg = 'Success! Your Account has been created.'
