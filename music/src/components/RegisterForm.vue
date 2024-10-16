@@ -156,6 +156,7 @@ export default {
 
       this.reg_alert_variant = 'bg-green-500 rounded-lg'
       this.reg_alert_msg = 'Success! Your Account has been created.'
+      window.location.reload()
     },
   },
 }
