@@ -89,6 +89,7 @@ export default {
 
       files.forEach(file => {
         if (file.type !== 'audio/mpeg') {
+          return
         }
       })
 
