@@ -16,7 +16,9 @@
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
           <li>
-            <router-link class="px-2 text-white" to="/about">About</router-link>
+            <router-link class="px-2 text-white" :to="{ name: 'about' }"
+              >About</router-link
+            >
           </li>
           <li v-if="!userStore.userLoggedIn">
             <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal"
@@ -25,15 +27,12 @@
           </li>
           <template v-else>
             <li>
-              <router-link class="px-2 text-white" to="/manage"
+              <router-link class="px-2 text-white" :to="{ name: 'manage' }"
                 >Manage</router-link
               >
             </li>
             <li>
-              <a
-                class="px-2 text-white"
-                href="#"
-                @click.prevent="userStore.signOut"
+              <a class="px-2 text-white" href="#" @click.prevent="signOut"
                 >Logout</a
               >
             </li>
@@ -58,6 +57,14 @@ export default {
     toggleAuthModal() {
       this.modalStore.isOpen = !this.modalStore.isOpen
       console.log(this.modalStore.isOpen)
+    },
+    signOut() {
+      this.userStore.signOut()
+
+      // console.log(this.$route)
+      if (this.$route.name === 'manage') {
+        this.$router.push({ name: 'home' })
+      }
     },
   },
 }
