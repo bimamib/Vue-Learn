@@ -17,7 +17,7 @@
         @dragover.prevent.stop="is_dragover = true"
         @dragenter.prevent.stop="is_dragover = true"
         @dragleave.prevent.stop="is_dragover = false"
-        @drop.prevent.stop="upload"
+        @drop.prevent.stop="upload($event)"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg
@@ -82,8 +82,17 @@ export default {
     }
   },
   methods: {
-    upload() {
+    upload($event) {
       this.is_dragover = false
+
+      const files = [...$event.dataTransfer.files]
+
+      files.forEach(file => {
+        if (file.type !== 'audio/mpeg') {
+        }
+      })
+
+      console.log(files)
     },
   },
 }
