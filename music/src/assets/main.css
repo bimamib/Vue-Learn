@@ -4,13 +4,13 @@ a {
 
 /* text-yellow-500 */
 a:hover {
-  color: #f59e0b;
+  color: #3f83f8;
   text-decoration: none;
 }
 
 .text-orange {
-  color: #f59e0b !important;
-  fill: #f59e0b !important;
+  color: #3f83f8 !important;
+  fill: #3f83f8 !important;
 }
 
 .card-header .fa.text-orange,
