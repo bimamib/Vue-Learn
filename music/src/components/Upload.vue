@@ -10,6 +10,14 @@
       <!-- Upload Dropbox -->
       <div
         class="flex items-center justify-center w-full px-10 py-10 rounded-lg text-center cursor-pointer border-2 border-dashed border-gray-400 text-gray-400 transition duration-500 hover:text-white hover:bg-green-400 hover:border-green-400 hover:border-solid"
+        :class="{ 'bg-green-400 border-green-400 border-solid': is_dragover }"
+        @drag.prevent.stop=""
+        @dragstart.prevent.stop=""
+        @dragend.prevent.stop="is_dragover = false"
+        @dragover.prevent.stop="is_dragover = true"
+        @dragenter.prevent.stop="is_dragover = true"
+        @dragleave.prevent.stop="is_dragover = false"
+        @drop.prevent.stop="upload"
       >
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
           <svg
@@ -68,5 +76,15 @@
 <script>
 export default {
   name: 'Upload',
+  data() {
+    return {
+      is_dragover: false,
+    }
+  },
+  methods: {
+    upload() {
+      this.is_dragover = false
+    },
+  },
 }
 </script>
