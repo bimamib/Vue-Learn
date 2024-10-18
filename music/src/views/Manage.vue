@@ -3,30 +3,30 @@
   <section class="container mx-auto mt-6">
     <div class="md:grid md:grid-cols-3 md:gap-4">
       <div class="col-span-1">
-        <app-upload />
+        <app-upload ref="upload" />
       </div>
       <div class="col-span-2">
         <div
-          class="bg-white rounded-xl border border-gray-200 relative flex flex-col shadow"
+          class="relative flex flex-col bg-white border border-gray-200 shadow rounded-xl"
         >
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
             <span class="card-title">My Songs</span>
             <i
-              class="fa fa-compact-disc float-right text-green-400 text-2xl"
+              class="float-right text-2xl text-green-400 fa fa-compact-disc"
             ></i>
           </div>
           <div class="p-6">
             <!-- Composition Items -->
-            <div class="border border-gray-200 p-3 mb-4 rounded-lg">
+            <div class="p-3 mb-4 border border-gray-200 rounded-lg">
               <div>
                 <h4 class="inline-block text-2xl font-bold">Song Name</h4>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
                 >
                   <i class="fa fa-times"></i>
                 </button>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
                 >
                   <i class="fa fa-pencil-alt"></i>
                 </button>
@@ -64,61 +64,61 @@
                 </form>
               </div>
             </div>
-            <div class="border border-gray-200 p-3 mb-4 rounded-lg">
+            <div class="p-3 mb-4 border border-gray-200 rounded-lg">
               <div>
                 <h4 class="inline-block text-2xl font-bold">Song Name</h4>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
                 >
                   <i class="fa fa-times"></i>
                 </button>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
                 >
                   <i class="fa fa-pencil-alt"></i>
                 </button>
               </div>
             </div>
-            <div class="border border-gray-200 p-3 mb-4 rounded-lg">
+            <div class="p-3 mb-4 border border-gray-200 rounded-lg">
               <div>
                 <h4 class="inline-block text-2xl font-bold">Song Name</h4>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
                 >
                   <i class="fa fa-times"></i>
                 </button>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
                 >
                   <i class="fa fa-pencil-alt"></i>
                 </button>
               </div>
             </div>
-            <div class="border border-gray-200 p-3 mb-4 rounded-lg">
+            <div class="p-3 mb-4 border border-gray-200 rounded-lg">
               <div>
                 <h4 class="inline-block text-2xl font-bold">Song Name</h4>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
                 >
                   <i class="fa fa-times"></i>
                 </button>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
                 >
                   <i class="fa fa-pencil-alt"></i>
                 </button>
               </div>
             </div>
-            <div class="border border-gray-200 p-3 mb-4 rounded-lg">
+            <div class="p-3 mb-4 border border-gray-200 rounded-lg">
               <div>
                 <h4 class="inline-block text-2xl font-bold">Song Name</h4>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-red-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
                 >
                   <i class="fa fa-times"></i>
                 </button>
                 <button
-                  class="ml-1 py-1 px-2 text-sm rounded text-white bg-blue-600 float-right"
+                  class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
                 >
                   <i class="fa fa-pencil-alt"></i>
                 </button>
@@ -140,6 +140,10 @@ export default {
   components: {
     AppUpload,
   },
+  // beforeRouteLeave(to, from, next) {
+  //   this.$refs.upload.cancelUploads()
+  //   next()
+  // },
   // beforeRouteEnter(to, from, next) {
   //   const store = useUserStore()
 
