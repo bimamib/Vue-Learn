@@ -38,6 +38,12 @@
           <h5>Drop your files here</h5>
         </div>
       </div>
+      <input
+        type="file"
+        multiple
+        @change="upload($event)"
+        class="block w-full text-sm border border-gray-300 rounded-lg shadow-sm focus:z-10 focus:outline-none focus:outline-blue-500 disabled:opacity-50 disabled:pointer-events-none file:bg-gray-50 file:border-0 file:me-4 file:py-2 file:px-4"
+      />
       <hr class="my-6" />
       <!-- Progess Bars -->
       <div class="mb-4" v-for="upload in uploads" :key="upload.name">
@@ -73,7 +79,9 @@ export default {
     upload($event) {
       this.is_dragover = false
 
-      const files = [...$event.dataTransfer.files]
+      const files = $event.dataTransfer
+        ? [...$event.dataTransfer.files]
+        : [...$event.target.files]
 
       files.forEach(file => {
         if (file.type !== 'audio/mpeg') {
