@@ -1,7 +1,7 @@
 <template>
   <div class="p-3 mb-4 border border-gray-200 rounded-lg">
-    <div>
-      <h4 class="inline-block text-2xl font-bold">Song Name</h4>
+    <div v-show="!showForm">
+      <h4 class="inline-block text-2xl font-bold">{{ song.modified_name }}</h4>
       <button
         class="float-right px-2 py-1 ml-1 text-sm text-white bg-red-600 rounded"
       >
@@ -9,11 +9,12 @@
       </button>
       <button
         class="float-right px-2 py-1 ml-1 text-sm text-white bg-blue-600 rounded"
+        @click.prevent="showForm = !showForm"
       >
         <i class="fa fa-pencil-alt"></i>
       </button>
     </div>
-    <div>
+    <div v-show="showForm">
       <form>
         <div class="mb-3">
           <label class="inline-block mb-2">Song Title</label>
@@ -55,6 +56,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      showForm: false,
+    }
   },
 }
 </script>
