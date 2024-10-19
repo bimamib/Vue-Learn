@@ -69,6 +69,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { songsCollection, storage } from '@/includes/firebase'
 
