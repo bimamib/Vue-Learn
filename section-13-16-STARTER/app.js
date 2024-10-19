@@ -1,5 +1,7 @@
 const app = Vue.createApp({
   data: () => ({
-    title: 'Hello',
+    title: "Hello",
   }),
-}).mount('#app')
+}).mount("#app");
+
+app.$refs.greeting.innerText = "Another Hello";
