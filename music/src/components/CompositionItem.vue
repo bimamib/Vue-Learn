@@ -49,6 +49,12 @@
 </template>
 <script>
 export default {
-  name: 'Composition Item',
+  name: 'CompositionItem',
+  props: {
+    song: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
