@@ -60,6 +60,7 @@
         </vee-form>
         <!-- Sort Comments -->
         <select
+          v-model="sort"
           class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
         >
           <option value="1">Latest</option>
@@ -72,7 +73,7 @@
   <ul class="container py-4 mx-auto">
     <li
       class="p-6 mb-2 border border-gray-200 bg-gray-50 rounded-2xl"
-      v-for="comment in comments"
+      v-for="comment in sortedComments"
       :key="comment.docID"
     >
       <!-- Comment Author -->
@@ -105,10 +106,20 @@ export default {
         'bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg',
       comment_alert_message: 'Please wait! Your comment is being submitted',
       comments: [],
+      sort: '1',
     }
   },
   computed: {
     ...mapState(useUserStore, ['userLoggedIn']),
+    sortedComments() {
+      return this.comments.slice().sort((a, b) => {
+        if (this.sort === '1') {
+          return new Date(b.datePosted) - new Date(a.datePosted)
+        }
+
+        return new Date(a.datePosted) - new Date(b.datePosted)
+      })
+    },
   },
   async created() {
     const docSnapshot = await songsCollection.doc(this.$route.params.id).get()
@@ -139,6 +150,8 @@ export default {
       }
 
       await commentsCollection.add(comment)
+
+      this.getComments()
 
       this.comment_in_submission = false
       this.comment_alert_variant =
