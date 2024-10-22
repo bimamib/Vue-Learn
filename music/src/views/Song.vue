@@ -1,91 +1,93 @@
 <template>
-  <!-- Music Header -->
-  <section class="relative w-full mb-8 text-center text-white py-14">
-    <div
-      class="box-border absolute inset-0 w-full h-full bg-contain music-bg"
-      style="background-image: url(/assets/img/song-header.png)"
-    ></div>
-    <div class="container flex items-center mx-auto">
-      <!-- Play/Pause Button -->
-      <button
-        @click.prevent="newSong(song)"
-        type="button"
-        class="z-50 w-24 h-24 text-3xl text-black bg-white rounded-full focus:outline-none"
-      >
-        <i class="fas fa-play"></i>
-      </button>
-      <div class="z-50 ml-8 text-left">
-        <!-- Song Info -->
-        <div class="text-3xl font-bold">{{ song.modified_name }}</div>
-        <div>{{ song.genre }}</div>
-      </div>
-    </div>
-  </section>
-  <!-- Form -->
-  <section class="container mx-auto mt-6" id="comments">
-    <div
-      class="relative flex flex-col bg-white border border-gray-200 rounded-2xl"
-    >
-      <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-        <!-- Comment Count -->
-        <span class="card-title">Comments ({{ song.comment_count }})</span>
-        <i class="float-right text-2xl text-green-400 fa fa-comments"></i>
-      </div>
-      <div class="p-6">
-        <div
-          class="p-4 mb-4 font-bold text-center text-white"
-          v-if="comment_show_alert"
-          :class="comment_alert_variant"
+  <main>
+    <!-- Music Header -->
+    <section class="relative w-full mb-8 text-center text-white py-14">
+      <div
+        class="box-border absolute inset-0 w-full h-full bg-contain music-bg"
+        style="background-image: url(/assets/img/song-header.png)"
+      ></div>
+      <div class="container flex items-center mx-auto">
+        <!-- Play/Pause Button -->
+        <button
+          @click.prevent="newSong(song)"
+          type="button"
+          class="z-50 w-24 h-24 text-3xl text-black bg-white rounded-full focus:outline-none"
         >
-          {{ comment_alert_message }}
+          <i class="fas fa-play"></i>
+        </button>
+        <div class="z-50 ml-8 text-left">
+          <!-- Song Info -->
+          <div class="text-3xl font-bold">{{ song.modified_name }}</div>
+          <div>{{ song.genre }}</div>
         </div>
-        <vee-form
-          :validation-schema="schema"
-          @submit="addComment"
-          v-if="userLoggedIn"
-        >
-          <vee-field
-            as="textarea"
-            name="comment"
-            class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg mb-4"
-            placeholder="Your comment here..."
-          ></vee-field>
-          <ErrorMessage class="text-red-600" name="comment" />
-          <button
-            type="submit"
-            class="py-1.5 px-3 rounded text-white bg-green-600 block"
-            :disabled="comment_in_submission"
+      </div>
+    </section>
+    <!-- Form -->
+    <section class="container mx-auto mt-6" id="comments">
+      <div
+        class="relative flex flex-col bg-white border border-gray-200 rounded-2xl"
+      >
+        <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
+          <!-- Comment Count -->
+          <span class="card-title">Comments ({{ song.comment_count }})</span>
+          <i class="float-right text-2xl text-green-400 fa fa-comments"></i>
+        </div>
+        <div class="p-6">
+          <div
+            class="p-4 mb-4 font-bold text-center text-white"
+            v-if="comment_show_alert"
+            :class="comment_alert_variant"
           >
-            Submit
-          </button>
-        </vee-form>
-        <!-- Sort Comments -->
-        <select
-          v-model="sort"
-          class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
-        >
-          <option value="1">Latest</option>
-          <option value="2">Oldest</option>
-        </select>
+            {{ comment_alert_message }}
+          </div>
+          <vee-form
+            :validation-schema="schema"
+            @submit="addComment"
+            v-if="userLoggedIn"
+          >
+            <vee-field
+              as="textarea"
+              name="comment"
+              class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg mb-4"
+              placeholder="Your comment here..."
+            ></vee-field>
+            <ErrorMessage class="text-red-600" name="comment" />
+            <button
+              type="submit"
+              class="py-1.5 px-3 rounded text-white bg-green-600 block"
+              :disabled="comment_in_submission"
+            >
+              Submit
+            </button>
+          </vee-form>
+          <!-- Sort Comments -->
+          <select
+            v-model="sort"
+            class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:outline-blue-500 rounded-lg"
+          >
+            <option value="1">Latest</option>
+            <option value="2">Oldest</option>
+          </select>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Comments -->
-  <ul class="container py-4 mx-auto">
-    <li
-      class="p-6 mb-2 border border-gray-200 bg-gray-50 rounded-2xl"
-      v-for="comment in sortedComments"
-      :key="comment.docID"
-    >
-      <!-- Comment Author -->
-      <div class="mb-5">
-        <div class="font-bold">{{ comment.name }}</div>
-        <time>{{ comment.datePosted }}</time>
-      </div>
+    </section>
+    <!-- Comments -->
+    <ul class="container py-4 mx-auto">
+      <li
+        class="p-6 mb-2 border border-gray-200 bg-gray-50 rounded-2xl"
+        v-for="comment in sortedComments"
+        :key="comment.docID"
+      >
+        <!-- Comment Author -->
+        <div class="mb-5">
+          <div class="font-bold">{{ comment.name }}</div>
+          <time>{{ comment.datePosted }}</time>
+        </div>
 
-      <p>{{ comment.content }}</p>
-    </li>
-  </ul>
+        <p>{{ comment.content }}</p>
+      </li>
+    </ul>
+  </main>
 </template>
 
 <script>

@@ -106,7 +106,7 @@ export default {
       in_submission: false,
       show_alert: false,
       alert_variant:
-        'max-w-xs bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg ',
+        'mt-2 bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg',
       alert_message: 'Please wait! Updating song info.',
     }
   },
@@ -115,7 +115,7 @@ export default {
       this.in_submission = true
       this.show_alert = true
       this.alert_variant =
-        'max-w-xs bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg'
+        'mt-2 bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg'
       this.alert_message = 'Please wait! Updating song info.'
 
       try {
@@ -123,7 +123,7 @@ export default {
       } catch (error) {
         this.in_submission = false
         this.alert_variant =
-          'max-w-xs bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg'
+          'mt-2 bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg'
         this.alert_message = 'Something went wrong! Try again later'
         return
       }
@@ -133,7 +133,7 @@ export default {
 
       this.in_submission = false
       this.alert_variant =
-        'max-w-xs bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg'
+        'mt-2 bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg p-4'
       this.alert_message = 'Success!'
     },
     async deleteSong() {
