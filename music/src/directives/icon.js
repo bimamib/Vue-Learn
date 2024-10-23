@@ -1,9 +1,19 @@
 export default {
   beforeMount(el, binding) {
-    let iconClass = `float-right text-2xl text-green-400 fa fa-${binding.value}`
+    let iconClass = ` text-2xl fa fa-${binding.value}`
 
     if (binding.arg === 'full') {
       iconClass = binding.value
+    }
+
+    if (binding.modifiers.right) {
+      iconClass += ' float-right'
+    }
+
+    if (binding.modifiers.blue) {
+      iconClass += ' text-blue-400'
+    } else {
+      iconClass += ' text-green-400'
     }
 
     el.innerHTML += `<i class="${iconClass}"></i>`
