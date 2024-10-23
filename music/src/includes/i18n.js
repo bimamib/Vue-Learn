@@ -9,4 +9,18 @@ export default createI18n({
     en,
     id,
   },
+  numberFormats: {
+    en: {
+      currency: {
+        style: 'currency',
+        currency: 'USD',
+      },
+    },
+    id: {
+      currency: {
+        style: 'currency',
+        currency: 'IDR',
+      },
+    },
+  },
 })
