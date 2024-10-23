@@ -1,7 +1,7 @@
 <template>
   <!-- Registration Form -->
   <div
-    class="text-white text-center font-bold p-4 rounded-md mb-4"
+    class="p-4 mb-4 font-bold text-center text-white rounded-md"
     v-if="reg_show_alert"
     :class="reg_alert_variant"
   >
@@ -87,15 +87,17 @@
       <ErrorMessage class="text-red-600" name="country" />
     </div>
     <!-- TOS -->
-    <div class="mb-3 pl-6">
+    <div class="pl-6 mb-3">
       <vee-field
         type="checkbox"
         name="tos"
         value="1"
-        class="w-4 h-4 float-left -ml-6 mt-1 rounded"
+        class="float-left w-4 h-4 mt-1 -ml-6 rounded"
       />
-      <label class="inline-block text-sm">Accept terms of service</label>
-      <ErrorMessage class="text-red-600 block" name="tos" />
+      <i18n-t class="inline-block" keypath="register.accept" tag="label">
+        <a href="#">{{ $t('register.tos') }}</a>
+      </i18n-t>
+      <ErrorMessage class="block text-red-600" name="tos" />
     </div>
     <button
       type="submit"
