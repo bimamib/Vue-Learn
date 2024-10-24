@@ -1,5 +1,8 @@
 {
   "home": {
     "listen": "Dengarkan Musik yang Hebat!"
+  },
+  "manage": {
+    "my_songs": "Lagu Saya"
   }
 }
