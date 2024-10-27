@@ -25,7 +25,7 @@
     </section>
 
     <!-- Main Content -->
-    <section class="container px-10 mx-auto">
+    <section class="container mx-auto font-sans">
       <div
         class="relative flex flex-col bg-white border border-gray-200 shadow rounded-xl"
       >
