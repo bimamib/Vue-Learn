@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Introduction -->
-    <section class="relative py-20 mb-8 text-center text-white">
+    <section class="relative py-20 mb-8 text-center text-white font-body">
       <div
         class="absolute inset-0 w-full h-full bg-contain introduction-bg"
         style="background-image: url(assets/img/header.png)"
@@ -25,7 +25,7 @@
     </section>
 
     <!-- Main Content -->
-    <section class="container mx-auto font-sans">
+    <section class="container mx-auto font-body">
       <div
         class="relative flex flex-col bg-white border border-gray-200 shadow rounded-xl"
       >

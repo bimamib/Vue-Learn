@@ -1,7 +1,7 @@
 <template>
   <!-- Login Form -->
   <div
-    class="text-white text-center font-bold p-4 mb-4"
+    class="p-4 mb-4 font-bold text-center text-white"
     v-if="login_show_alert"
     :class="login_alert_variant"
   >
@@ -63,19 +63,22 @@ export default {
     async login(values) {
       this.login_in_submission = true
       this.login_show_alert = true
-      this.login_alert_variant = 'bg-blue-500 rounded-lg'
+      this.login_alert_variant =
+        'bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg'
       this.login_alert_msg = 'Please Wait! We are logging You in.'
 
       try {
         await this.authenticate(values)
       } catch (error) {
         this.login_in_submission = false
-        this.login_alert_variant = 'bg-red-500 rounded-lg shadow-md'
+        this.login_alert_variant =
+          'bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg'
         this.login_alert_msg = 'Invalid login details.'
         return
       }
 
-      this.login_alert_variant = 'bg-green-500 rounded-lg'
+      this.login_alert_variant =
+        'bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg'
       this.login_alert_msg = 'Success! You are now logged in.'
       window.location.reload()
     },

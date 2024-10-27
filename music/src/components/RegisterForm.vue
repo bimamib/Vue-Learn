@@ -143,20 +143,23 @@ export default {
     async register(values) {
       this.reg_show_alert = true
       this.reg_in_submission = true
-      this.reg_alert_variant = 'bg-blue-500 rounded-lg'
+      this.reg_alert_variant =
+        'bg-blue-100 border border-blue-200 text-sm text-blue-800 rounded-lg'
       this.reg_alert_msg = 'Please Wait! Your Account is being created.'
 
       try {
         await this.createUser(values)
       } catch (error) {
         this.reg_in_submission = false
-        this.reg_alert_variant = 'bg-red-500 rounded-lg'
+        this.reg_alert_variant =
+          'bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg'
         this.reg_alert_msg =
           'An unexpected error occured. Please try again later.'
         return
       }
 
-      this.reg_alert_variant = 'bg-green-500 rounded-lg'
+      this.reg_alert_variant =
+        'bg-teal-100 border border-teal-200 text-sm text-teal-800 rounded-lg'
       this.reg_alert_msg = 'Success! Your Account has been created.'
       window.location.reload()
     },
