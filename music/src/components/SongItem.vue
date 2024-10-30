@@ -1,6 +1,6 @@
 <template>
   <li
-    class="flex items-center justify-between p-3 pl-6 transition duration-300 cursor-pointer hover:bg-gray-50 example"
+    class="flex items-center justify-between p-3 pl-6 transition duration-300 cursor-pointer hover:bg-gray-50 example snapshot"
     :class="`song-id-${song.docID}`"
   >
     <div>
