@@ -1,12 +1,11 @@
 import js from '@eslint/js'
-import pluginVue, {
-  rules
-} from 'eslint-plugin-vue'
+import pluginVue, { rules } from 'eslint-plugin-vue'
 import pluginVitest from '@vitest/eslint-plugin'
 import pluginCypress from 'eslint-plugin-cypress/flat'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 
-export default [{
+export default [
+  {
     name: 'app/files-to-lint',
     files: ['**/*.{js,mjs,jsx,vue}'],
 
@@ -14,7 +13,7 @@ export default [{
       node: true,
     },
     rules: {
-      "vue/multi-word-component-names": "off",
+      'vue/multi-word-component-names': 'off',
     },
   },
 
@@ -29,13 +28,21 @@ export default [{
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
+    globals: {
+      test: 'readonly',
+      describe: 'readonly',
+      expect: 'readonly',
+      vi: 'readonly',
+      beforeEach: 'readonly',
+      it: 'readonly',
+    },
   },
 
   {
     ...pluginCypress.configs.recommended,
     files: [
       'cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}',
-      'cypress/support/**/*.{js,ts,jsx,tsx}' // use single quotes as in the other configs
+      'cypress/support/**/*.{js,ts,jsx,tsx}', // use single quotes as in the other configs
     ],
   },
   skipFormatting,
