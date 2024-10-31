@@ -9,7 +9,7 @@
     </div>
     <div class="flex items-center gap-4 flex-nowrap">
       <!-- Play/Pause Button -->
-      <button type="button" @click.prevent="toggleAudio">
+      <button type="button" @click.prevent="toggleAudio" id="player-play-btn">
         <i
           class="text-xl text-gray-500 fa"
           :class="{ 'fa-play': !playing, 'fa-pause': playing }"

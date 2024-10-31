@@ -9,6 +9,7 @@
       <div class="container flex items-center mx-auto">
         <!-- Play/Pause Button -->
         <button
+          id="play-btn"
           @click.prevent="newSong(song)"
           type="button"
           class="z-50 w-24 h-24 text-3xl text-black bg-white rounded-full focus:outline-none"
