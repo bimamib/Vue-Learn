@@ -17,6 +17,11 @@ export default {
       num.value++;
     }
 
+    const user = {
+      name: "Harry",
+      age: 20,
+    };
+
     return {
       num,
       increment,
