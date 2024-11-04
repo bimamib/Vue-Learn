@@ -3,12 +3,12 @@
     <p>{{ num }}</p>
     <button type="button" @click.prevent="increment">Click Me</button>
 
-    <p>{{ user.name }}</p>
+    <p>{{ name }}</p>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, toRefs } from "vue";
 
 export default {
   name: "App",
@@ -31,7 +31,7 @@ export default {
     return {
       num,
       increment,
-      user,
+      ...toRefs(user),
     };
   },
 };
