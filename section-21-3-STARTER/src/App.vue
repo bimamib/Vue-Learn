@@ -2,11 +2,13 @@
   <div>
     <p>{{ num }}</p>
     <button type="button" @click.prevent="increment">Click Me</button>
+
+    <p>{{ user.name }}</p>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 export default {
   name: "App",
@@ -17,14 +19,19 @@ export default {
       num.value++;
     }
 
-    const user = {
+    setTimeout(() => {
+      user.name = "Potter";
+    }, 3000);
+
+    const user = reactive({
       name: "Harry",
       age: 20,
-    };
+    });
 
     return {
       num,
       increment,
+      user,
     };
   },
 };
