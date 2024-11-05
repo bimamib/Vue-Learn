@@ -12,6 +12,8 @@
     <p>{{ reversedPhrase }}</p>
 
     <app-alert :user="user" />
+
+    <button type="button" ref="btn">Button</button>
   </div>
 </template>
 
@@ -34,11 +36,17 @@ export default {
     AppAlert,
   },
   setup() {
+    const btn = ref(null);
+
     onBeforeMount(() => {
       console.log("onBeforeMount()");
     });
     onMounted(() => {
       console.log("onMounted()");
+
+      btn.value.addEventListener("click", () => {
+        console.log("button clicked");
+      });
     });
 
     let num = ref(0);
@@ -79,6 +87,7 @@ export default {
       reversedPhrase,
       double,
       user,
+      btn,
     };
   },
 };
