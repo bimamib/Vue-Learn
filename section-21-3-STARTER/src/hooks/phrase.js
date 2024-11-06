@@ -3,6 +3,7 @@ import { ref, watchEffect } from "vue";
 export const usePhrase = () => {
   const phrase = ref("");
   const reversedPhrase = ref("");
+  const num = ref("");
 
   // watch([phrase], ([newVal, oldVal]) => {
   //   reversedPhrase.value = phrase.value.split("").reverse().join("");
@@ -12,5 +13,5 @@ export const usePhrase = () => {
     reversedPhrase.value = phrase.value.split("").reverse().join("");
   });
 
-  return { phrase, reversedPhrase };
+  return { phrase, reversedPhrase, num };
 };
