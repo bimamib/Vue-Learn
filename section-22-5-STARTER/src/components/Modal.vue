@@ -25,6 +25,17 @@ export default {
     close() {
       this.$emit("hide");
     },
+    handler(e) {
+      if (e.code === "Escape" && this.show) {
+        this.close();
+      }
+    },
+  },
+  created() {
+    document.addEventListener("keydown", this.handler);
+  },
+  unmounted() {
+    document.removeEventListener("keydown", this.handler);
   },
 };
 </script>
