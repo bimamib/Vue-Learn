@@ -19,6 +19,7 @@ import { mapWritableState } from 'pinia'
 import useUserStore from '@/stores/user'
 import { auth } from './includes/firebase'
 import AppPlayer from '@/components/Player.vue'
+import './assets/base.css'
 
 export default {
   name: 'App',
