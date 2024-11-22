@@ -24,16 +24,16 @@
     <link href="assets/css/main.css" rel="stylesheet" />
   </head>
 
-  <body class="bg-gray-100 font-sans pb-24">
+  <body class="pb-24 bg-gray-100">
     <!-- Header -->
     <header id="header" class="bg-gray-700">
-      <nav class="container mx-auto flex justify-start items-center py-5 px-4">
+      <nav class="container flex items-center justify-start px-4 py-5 mx-auto">
         <!-- App Name -->
-        <a class="text-white font-bold uppercase text-2xl mr-4" href="#"
+        <a class="mr-4 text-2xl font-bold text-white uppercase" href="#"
           >Music</a
         >
 
-        <div class="flex flex-grow items-center">
+        <div class="flex items-center flex-grow">
           <!-- Primary Navigation -->
           <ul class="flex flex-row mt-1">
             <!-- Navigation Links -->
@@ -49,20 +49,20 @@
     </header>
 
     <!-- Music Header -->
-    <section class="w-full mb-8 py-14 text-center text-white relative">
+    <section class="relative w-full mb-8 text-center text-white py-14">
       <div
-        class="absolute inset-0 w-full h-full box-border bg-contain music-bg"
+        class="box-border absolute inset-0 w-full h-full bg-contain music-bg"
         style="background-image: url(/assets/img/song-header.png)"
       ></div>
-      <div class="container mx-auto flex items-center">
+      <div class="container flex items-center mx-auto">
         <!-- Play/Pause Button -->
         <button
           type="button"
-          class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
+          class="z-50 w-24 h-24 text-3xl text-black bg-white rounded-full focus:outline-none"
         >
           <i class="fas fa-play"></i>
         </button>
-        <div class="z-50 text-left ml-8">
+        <div class="z-50 ml-8 text-left">
           <!-- Song Info -->
           <div class="text-3xl font-bold">Song Title</div>
           <div>Blues Rock</div>
@@ -72,12 +72,12 @@
     <!-- Form -->
     <section class="container mx-auto mt-6">
       <div
-        class="bg-white rounded border border-gray-200 relative flex flex-col"
+        class="relative flex flex-col bg-white border border-gray-200 rounded"
       >
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
           <!-- Comment Count -->
           <span class="card-title">Comments (15)</span>
-          <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
+          <i class="float-right text-2xl text-green-400 fa fa-comments"></i>
         </div>
         <div class="p-6">
           <form>
@@ -104,7 +104,7 @@
     </section>
     <!-- Comments -->
     <ul class="container mx-auto">
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -116,7 +116,7 @@
           accusantium der doloremque laudantium.
         </p>
       </li>
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -128,7 +128,7 @@
           accusantium der doloremque laudantium.
         </p>
       </li>
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -140,7 +140,7 @@
           accusantium der doloremque laudantium.
         </p>
       </li>
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -152,7 +152,7 @@
           accusantium der doloremque laudantium.
         </p>
       </li>
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -164,7 +164,7 @@
           accusantium der doloremque laudantium.
         </p>
       </li>
-      <li class="p-6 bg-gray-50 border border-gray-200">
+      <li class="p-6 border border-gray-200 bg-gray-50">
         <!-- Comment Author -->
         <div class="mb-5">
           <div class="font-bold">Elaine Dreyfuss</div>
@@ -179,21 +179,21 @@
     </ul>
 
     <!-- Player -->
-    <div class="fixed bottom-0 left-0 bg-white px-4 py-2 w-full">
+    <div class="fixed bottom-0 left-0 w-full px-4 py-2 bg-white">
       <!-- Track Info -->
       <div class="text-center">
-        <span class="song-title font-bold">Song Title</span> by
+        <span class="font-bold song-title">Song Title</span> by
         <span class="song-artist">Artist</span>
       </div>
-      <div class="flex flex-nowrap gap-4 items-center">
+      <div class="flex items-center gap-4 flex-nowrap">
         <!-- Play/Pause Button -->
         <button type="button">
-          <i class="fa fa-play text-gray-500 text-xl"></i>
+          <i class="text-xl text-gray-500 fa fa-play"></i>
         </button>
         <!-- Current Position -->
         <div class="player-currenttime">00:00</div>
         <!-- Scrub Container  -->
-        <div class="w-full h-2 rounded bg-gray-200 relative cursor-pointer">
+        <div class="relative w-full h-2 bg-gray-200 rounded cursor-pointer">
           <!-- Player Ball -->
           <span
             class="absolute -top-2.5 -ml-2.5 text-gray-800 text-lg"
