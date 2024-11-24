@@ -55,4 +55,8 @@ export default {
   transition: all 0.5s linear;
   opacity: 0;
 }
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
 </style>
